@@ -31,6 +31,8 @@ class Phrase {
             for(box of boxes){
                 if(e.target.value === box.value){
                     return box.value;
+                }else{
+                    return false;
                 }
             }
         });
@@ -43,10 +45,10 @@ class Phrase {
 
 
     showMatchedLetter(){
-        let letter  = this.checkLetter;
+        let pickedLetter  = this.checkLetter();
         const boxes = document.querySelectorAll(".letter");
         for(box of boxes){
-            if(box.value === letter.value){
+            if(box.value === pickedLetter.value){
                 box.classList.add("show");
             }
         }
