@@ -5,20 +5,24 @@
 class Game {
     constructor(){
         this.missed = 0;
-        this.phrase = ["phrase one", "phrase one", "phrase one", "phrase one","phrase one"];
+        this.phrases = ["Candy Cane", "Ice Cream Cake", "Marvel Comics", "Playstation 5","Super Saiyan"];
         this.activePhrase = null;
     }
 
     getRandomPhrase(){
         const randomNumber = Math.floor(Math.random() * 4);
-        return this.phrase[randomNumber];
+        return this.phrases[randomNumber];
     }
 
     startGame(){
+        const phraseGame = new Game();
+
         const overlay = document.getElementById("overlay");
         overlay.style.display = "none";
-        console.log("started game");
-        this.getRandomPhrase();
+        
+        let randomPhrase = this.getRandomPhrase();
+        const phrase = new Phrase(randomPhrase);
+        phrase.addPhraseToDisplay();
     }
 
     handleInteraction(){

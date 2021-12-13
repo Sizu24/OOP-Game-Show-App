@@ -14,6 +14,7 @@ class Phrase {
      */
     addPhraseToDisplay(){
         let list = "";
+        const listUl = document.getElementById("phrase").firstElementChild;
         for(let letter of this.phrase){
             if(letter === " "){
                 list += '<li class="space"> </li>';
@@ -21,6 +22,7 @@ class Phrase {
                 list += `<li class="hide letter">${letter}</li>`;
             }
         }
+        listUl.innerHTML = list;
         return list;
     }
 
