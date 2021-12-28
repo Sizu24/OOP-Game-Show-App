@@ -3,6 +3,8 @@
  * app.js */
 
 const button = document.querySelector("#btn__reset");
+const keyboard = document.querySelector("#qwerty");
+const game = new Game();
 
 // Start Game
 
@@ -12,7 +14,13 @@ const button = document.querySelector("#btn__reset");
  */
 
 button.addEventListener("click", ()=>{
-    const game = new Game();
     game.startGame();
 });
+
+keyboard.addEventListener("click", e =>{
+    if(e.target.className === "key"){
+        game.handleInteraction(e.target);
+    }
+});
+
 

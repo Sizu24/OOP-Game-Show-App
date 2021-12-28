@@ -23,21 +23,17 @@ class Phrase {
             }
         }
         listUl.innerHTML = list;
+        console.log(this.phrase);
         return list;
     }
 
-    checkLetter(){
-        const keys = document.querySelectorAll(".key");
-        const matched = [];
-        keys.addEventListener("click", e =>{
-            for(box of boxes){
-                if(e.target.value === box.value){
-                    return box.value;
-                }else{
-                    return false;
-                }
+    checkLetter(keyboardLetter){
+        for(let i = 0; i < this.phrase.length; i++){
+            if(keyboardLetter.textContent === this.phrase[i]){
+                return this.phrase[i];
             }
-        });
+        }
+        return false;
     }
 
     // check if letter picked matches any letter on board
@@ -50,7 +46,7 @@ class Phrase {
         let pickedLetter  = this.checkLetter();
         const boxes = document.querySelectorAll(".letter");
         for(box of boxes){
-            if(box.value === pickedLetter.value){
+            if(box.textContent === pickedLetter){
                 box.classList.add("show");
             }
         }
