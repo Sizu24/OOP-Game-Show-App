@@ -42,10 +42,9 @@ class Phrase {
             // if no match, show no match message
 
 
-    showMatchedLetter(){
-        let pickedLetter  = this.checkLetter();
+    showMatchedLetter(pickedLetter){
         const boxes = document.querySelectorAll(".letter");
-        for(box of boxes){
+        for(let box of boxes){
             if(box.textContent === pickedLetter){
                 box.classList.add("show");
             }

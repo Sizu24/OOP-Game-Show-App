@@ -64,7 +64,7 @@ class Game {
             
         }else{
             keyletter.classList.add("chosen");
-            this.activePhrase.showMatchedLetter();
+            this.activePhrase.showMatchedLetter(isMatchedLetter);
 
         }
     }
