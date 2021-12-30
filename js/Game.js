@@ -29,7 +29,7 @@ class Game {
     }
 
     gameOver(){
-
+        console.log("Game over");
     }
 
     removeLife(){
@@ -48,6 +48,17 @@ class Game {
 
         // Change heart icon from blue to gray by using index of heart using missed count minus 1
         hearts[0][this.missed - 1].src = "images/lostHeart.png";
+    }
+
+    checkForWin(){
+        const matchedLetters = document.querySelectorAll(".show");
+        const letters = document.querySelectorAll(".letter");
+
+        if(matchedLetters.length === letters.length){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     handleInteraction(keyletter){
@@ -79,6 +90,10 @@ class Game {
         }else{
             keyletter.classList.add("chosen");
             this.activePhrase.showMatchedLetter(isMatchedLetter);
+            const win = this.checkForWin();
+            if(win){
+                this.gameOver();
+            }
         }
     }
 }
