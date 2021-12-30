@@ -28,8 +28,12 @@ class Game {
         randomPhrase.addPhraseToDisplay();
     }
 
-    gameOver(){
-        console.log("Game over");
+    gameOver(winLoss){
+        if(winLoss === true){
+            console.log("You Win!");
+        }else{
+            console.log("You Lose, play again");
+        }
     }
 
     removeLife(){
@@ -38,7 +42,8 @@ class Game {
 
         // if all hearts are gone, run gameOver method
         if(this.missed === 5){
-            this.gameOver();
+            const win = false;
+            this.gameOver(win);
         }
 
         // assign number of missed, then push all heart icons to hearts array
@@ -92,7 +97,7 @@ class Game {
             this.activePhrase.showMatchedLetter(isMatchedLetter);
             const win = this.checkForWin();
             if(win){
-                this.gameOver();
+                this.gameOver(win); 
             }
         }
     }
