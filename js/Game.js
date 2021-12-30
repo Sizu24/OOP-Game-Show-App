@@ -22,15 +22,32 @@ class Game {
 
         // Get random phrase from phrase class, and set it to activePhrase
         const randomPhrase = this.getRandomPhrase();
-        // const phrase = new Phrase(randomPhrase);
         this.activePhrase = randomPhrase;
         
         // Add random phrase to method to prepare for display
         randomPhrase.addPhraseToDisplay();
     }
 
-    removeLife(){
+    gameOver(){
 
+    }
+
+    removeLife(){
+        // Add count to missed in constructor
+        this.missed++;
+
+        // if all hearts are gone, run gameOver method
+        if(this.missed === 5){
+            this.gameOver();
+        }
+
+        // assign number of missed, then push all heart icons to hearts array
+        let count = this.missed;
+        const hearts = [];
+        hearts.push(document.querySelectorAll(".tries img"));
+
+        // Change heart icon from blue to gray by using index of heart using missed count minus 1
+        hearts[0][this.missed - 1].src = "images/lostHeart.png";
     }
 
     handleInteraction(keyletter){
@@ -53,9 +70,6 @@ class Game {
          * 
          * */
 
-
-        console.log("hi");
-
         const isMatchedLetter = this.activePhrase.checkLetter(keyletter);
         
         if(isMatchedLetter === false){
@@ -65,7 +79,6 @@ class Game {
         }else{
             keyletter.classList.add("chosen");
             this.activePhrase.showMatchedLetter(isMatchedLetter);
-
         }
     }
 }

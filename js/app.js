@@ -23,4 +23,3 @@ keyboard.addEventListener("click", e =>{
     }
 });
 
-
