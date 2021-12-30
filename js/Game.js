@@ -29,10 +29,19 @@ class Game {
     }
 
     gameOver(winLoss){
+        const gameOverMessage = document.querySelector("#game-over-message");
+        const overlay = document.querySelector("#overlay");
+
         if(winLoss === true){
-            console.log("You Win!");
+            overlay.style.display = "block";
+            gameOverMessage.textContent = "You Win!";
+            overlay.classList.remove("start");
+            overlay.classList.add("win");
         }else{
-            console.log("You Lose, play again");
+            overlay.style.display = "block";
+            gameOverMessage.textContent = "You Lose!";
+            overlay.classList.remove("start");
+            overlay.classList.add("lose");
         }
     }
 
