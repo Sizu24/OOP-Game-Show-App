@@ -29,6 +29,11 @@ class Game {
     }
 
     gameOver(winLoss){
+
+        /**
+         * If win, show you win message by showing overlay, but replacing start message with win message
+         * If lose, show you lose message by showing overlay, but replacing start message with lose message
+         */
         const gameOverMessage = document.querySelector("#game-over-message");
         const overlay = document.querySelector("#overlay");
 
@@ -43,9 +48,45 @@ class Game {
             overlay.classList.remove("start");
             overlay.classList.add("lose");
         }
+
+        /**
+         * Select phrase and remove to prepare for next game's phrase
+         * Remove "chosen" and "wrong" classes from keyboard keys
+         */
+        const listOl = document.getElementById("phrase").firstElementChild;
+        listOl.innerHTML = "";
+
+        const keys = document.querySelectorAll(".key");
+
+        keys.forEach(key => key.classList.remove("chosen"));
+        keys.forEach(key => key.classList.remove("wrong"));
+
+        /**
+         * Select hearts list by selecting ol from scoreboard id
+         * Loop 5 times for 5 hearts to add to scoreHearts variable
+         * Add scoreHearts list inside ol
+         * Set missed guesses back to 0
+         */
+        const scoreboard = document.querySelector("#scoreboard").firstElementChild;
+        let scoreHearts = "";
+
+        for(let i = 0; i < 5; i++){
+            scoreHearts += `<li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>`;
+        }
+        scoreboard.innerHTML = scoreHearts;
+
+        // Set missed constructor back to 0
+        this.missed = 0;
     }
 
     removeLife(){
+        // assign number of missed, then push all heart icons to hearts array
+        const hearts = [];
+        hearts.push(document.querySelectorAll(".tries img"));
+
+        // Change heart icon from blue to gray by using index of heart using missed count minus 1
+        hearts[0][this.missed].src = "images/lostHeart.png";
+
         // Add count to missed in constructor
         this.missed++;
 
@@ -54,14 +95,6 @@ class Game {
             const win = false;
             this.gameOver(win);
         }
-
-        // assign number of missed, then push all heart icons to hearts array
-        let count = this.missed;
-        const hearts = [];
-        hearts.push(document.querySelectorAll(".tries img"));
-
-        // Change heart icon from blue to gray by using index of heart using missed count minus 1
-        hearts[0][this.missed - 1].src = "images/lostHeart.png";
     }
 
     checkForWin(){
