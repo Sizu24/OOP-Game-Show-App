@@ -16,7 +16,7 @@ button.addEventListener("click", ()=>{
     game.startGame();
 });
 
-// If key is clicked, run handleInteraction and send clicked key as argument for method
+// If key is clicked, run handleInteraction and send clicked key as argument for method 
 keyboard.addEventListener("click", e =>{
     if(e.target.className === "key"){
         game.handleInteraction(e.target);
@@ -46,7 +46,5 @@ document.addEventListener("keyup", e =>{
         })
     }
 });
-
-
 
 

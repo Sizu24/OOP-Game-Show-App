@@ -2,7 +2,7 @@
  * Project 4 - OOP Game App
  * Game.js */
 
-// Game class with missed guess count, phrases that will be used, and active phrase
+// Game class with missed guess count, phrases that will be used, and active phrase 
 class Game {
     constructor(){
         this.missed = 0;
