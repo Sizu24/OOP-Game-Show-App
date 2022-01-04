@@ -6,8 +6,6 @@ const button = document.querySelector("#btn__reset");
 const keyboard = document.querySelector("#qwerty");
 const game = new Game();
 
-
-
 // Change background color to gradient
 const background = document.querySelector(".main-container");
 background.style.background = `linear-gradient(45deg, #d68f8f, #2198c4)`;
