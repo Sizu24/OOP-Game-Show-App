@@ -7,7 +7,7 @@
 class Game {
     constructor(){
         this.missed = 0;
-        this.phrases = [new Phrase("Candy Cane"), new Phrase("Ice Cream Cake"), new Phrase("Marvel Comics"), new Phrase("Playstation"), new Phrase("Super Saiyan")];
+        this.phrases = [new Phrase("Candy Cane"), new Phrase("Ice Cream Cake"), new Phrase("Marvel Comics"), new Phrase("Playstation Game"), new Phrase("Super Saiyan")];
         this.activePhrase = null;
     }
 
