@@ -5,6 +5,7 @@
 const button = document.querySelector("#btn__reset");
 const keyboard = document.querySelector("#qwerty");
 let game = null;
+
 // Change background color to gradient
 const background = document.querySelector(".main-container");
 background.style.background = `linear-gradient(45deg, #d68f8f, #2198c4)`;
@@ -35,6 +36,7 @@ document.addEventListener("keyup", e =>{
 
     if(overlay.style.display === "none"){
         const keys = document.querySelectorAll(".key");
+        
         keys.forEach(key => {
             if(key.textContent === letter){
                 if(key.className !== "key wrong"){

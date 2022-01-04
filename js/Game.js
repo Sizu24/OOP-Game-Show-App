@@ -2,7 +2,6 @@
  * Project 4 - OOP Game App
  * Game.js */
 
-
 // Game class with missed guess count, phrases that will be used, and active phrase
 class Game {
     constructor(){
@@ -76,7 +75,7 @@ class Game {
             scoreHearts += `<li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>`;
         }
         scoreboard.innerHTML = scoreHearts;
-        
+
         // Set missed constructor back to 0
         this.missed = 0;
     }
