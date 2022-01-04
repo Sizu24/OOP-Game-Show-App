@@ -2,15 +2,18 @@
  * Project 4 - OOP Game App
  * Game.js */
 
+
+// Game class with missed guess count, phrases that will be used, and active phrase
 class Game {
     constructor(){
         this.missed = 0;
-        this.phrases = [new Phrase("Candy Cane"), new Phrase("Ice Cream Cake"), new Phrase("Marvel Comics"), new Phrase("Playstation 5","Super Saiyan")];
+        this.phrases = [new Phrase("Candy Cane"), new Phrase("Ice Cream Cake"), new Phrase("Marvel Comics"), new Phrase("Playstation"), new Phrase("Super Saiyan")];
         this.activePhrase = null;
     }
 
+    // Generate random phrase using number of phrases
     getRandomPhrase(){
-        const randomNumber = Math.floor(Math.random() * (this.phrases.length - 1));
+        const randomNumber = Math.floor(Math.random() * (this.phrases.length));
         return this.phrases[randomNumber];
     }
 
@@ -133,7 +136,6 @@ class Game {
         if(isMatchedLetter === false){
             keyletter.classList.add("wrong");
             this.removeLife();
-            
         }else{
             keyletter.classList.add("chosen");
             this.activePhrase.showMatchedLetter(isMatchedLetter);
