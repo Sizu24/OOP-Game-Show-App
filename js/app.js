@@ -4,14 +4,14 @@
 
 const button = document.querySelector("#btn__reset");
 const keyboard = document.querySelector("#qwerty");
-const game = new Game();
-
+let game = null;
 // Change background color to gradient
 const background = document.querySelector(".main-container");
 background.style.background = `linear-gradient(45deg, #d68f8f, #2198c4)`;
 
 // Start Game
 button.addEventListener("click", ()=>{
+    game = new Game();
     game.startGame();
 });
 

@@ -29,6 +29,13 @@ class Game {
         
         // Add random phrase to method to prepare for display
         randomPhrase.addPhraseToDisplay();
+
+        // Remove "chosen" and "wrong" classes from keyboard keys
+        const keys = document.querySelectorAll(".key");
+
+        keys.forEach(key => key.classList.remove("chosen"));
+        keys.forEach(key => key.classList.remove("wrong"));
+        keys.forEach(key => key.disabled = false);
     }
 
     gameOver(winLoss){
@@ -52,17 +59,9 @@ class Game {
             overlay.classList.add("lose");
         }
 
-        /**
-         * Select phrase and remove to prepare for next game's phrase
-         * Remove "chosen" and "wrong" classes from keyboard keys
-         */
+        // Select phrase and remove to prepare for next game's phrase
         const listOl = document.getElementById("phrase").firstElementChild;
         listOl.innerHTML = "";
-
-        const keys = document.querySelectorAll(".key");
-
-        keys.forEach(key => key.classList.remove("chosen"));
-        keys.forEach(key => key.classList.remove("wrong"));
 
         /**
          * Select hearts list by selecting ol from scoreboard id
@@ -77,7 +76,7 @@ class Game {
             scoreHearts += `<li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>`;
         }
         scoreboard.innerHTML = scoreHearts;
-
+        
         // Set missed constructor back to 0
         this.missed = 0;
     }
@@ -144,5 +143,6 @@ class Game {
                 this.gameOver(win); 
             }
         }
+        keyletter.disabled = true;
     }
 }
